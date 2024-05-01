@@ -11,7 +11,8 @@ import { UserModel } from './users.model';
 
 export class UserService extends UnsubscribeOnDestroyAdapter {
 
-  private readonly API_URL = 'http://localhost:8080';
+ // private readonly API_URL = 'http://localhost:8080';
+  private readonly API_URL = 'https://next-app-version-pw4zv.ondigitalocean.app';
 
   isTblLoading = true;
 
