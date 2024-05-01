@@ -1,0 +1,95 @@
+<div class="container">
+    <h3 mat-dialog-title>Détails de la transaction de {{data.fullName}}</h3>
+    <div mat-dialog-content>
+        <div>
+            <p><span class="font-weight-bold">ID:</span> {{ data.id }}</p>
+            <p><span class="font-weight-bold">User ID:</span> {{ data.userId }}</p>
+            <p><span class="font-weight-bold">Transaction Date:</span> {{ data.txnDate }}</p>
+            <p><span class="font-weight-bold">Amount:</span> {{ data.amount }}</p>
+            <p><span class="font-weight-bold">Total Amount:</span> {{ data.totalAmount }}</p>
+            <p><span class="font-weight-bold">Wallet Sender:</span> {{ data.walletSender }}</p>
+            <p><span class="font-weight-bold">Phone Number Sender:</span> {{ data.phoneNumberSender }}</p>
+            <p><span class="font-weight-bold">Wallet Receiver:</span> {{ data.walletReciever }}</p>
+            <p><span class="font-weight-bold">Phone Number Receiver:</span> {{ data.phoneNumberReciever }}</p>
+            <p><span class="font-weight-bold">Token Invoice:</span> {{ data.tokenInvoice }}</p>
+            <p><span class="font-weight-bold">Disburse Token:</span> {{ data.disburseToken }}</p>
+            <p><span class="font-weight-bold">Full Name:</span> {{ data.fullName }}</p>
+            <!-- <p><span class="font-weight-bold">USSD Code:</span> {{ data.ussdCode }}</p> -->
+            <p><span class="font-weight-bold">Soho Txn Status:</span> {{ data.sohoTxnStatus }}</p>
+            <!-- <p><span class="font-weight-bold">Cashout Data Hash:</span> {{ data.cashoutData.amount }}</p>
+            <p><span class="font-weight-bold">Cashout Data Mode:</span> {{ data.cashoutData.mode }}</p>
+            <p><span class="font-weight-bold">Cashout Data Status:</span> {{ data.cashoutData.status }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Name:</span> {{ data.cashoutData.invoice.items.item_0.name }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Quantity:</span> {{ data.cashoutData.invoice.items.item_0.quantity }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Unit Price:</span> {{ data.cashoutData.invoice.items.item_0.unit_price }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Description:</span> {{ data.cashoutData.invoice.items.item_0.description }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Total Price:</span> {{ data.cashoutData.invoice.items.item_0.total_price }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Token:</span> {{ data.cashoutData.invoice.token }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice PAL is On:</span> {{ data.cashoutData.invoice.pal_is_on }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Description:</span> {{ data.cashoutData.invoice.description }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Expire Date:</span> {{ data.cashoutData.invoice.expire_date }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Total Amount:</span> {{ data.cashoutData.invoice.total_amount }}</p>
+            <p><span class="font-weight-bold">Cashout Data Invoice Total Amount Without Fees:</span> {{ data.cashoutData.invoice.total_amount_without_fees }}</p>
+            <p><span class="font-weight-bold">Cashout Data Customer Name:</span> {{ data.cashoutData.customer.name }}</p>
+            <p><span class="font-weight-bold">Cashout Data Customer Email:</span> {{ data.cashoutData.customer.email }}</p>
+            <p><span class="font-weight-bold">Cashout Data Customer Phone:</span> {{ data.cashoutData.customer.phone }}</p>
+            <p><span class="font-weight-bold">Cashout Data Customer Payment Method:</span> {{ data.cashoutData.customer.payment_method }}</p>
+            <p><span class="font-weight-bold">Cashout Data Fail Reason:</span> {{ data.cashoutData.fail_reason }}</p>
+            <p><span class="font-weight-bold">Cashout Data Receipt URL:</span> {{ data.cashoutData.receipt_url }}</p>
+            <p><span class="font-weight-bold">Cashout Data Response Code:</span> {{ data.cashoutData.response_code }}</p>
+            <p><span class="font-weight-bold">Cashout Data Response Text:</span> {{ data.cashoutData.response_text }}</p>
+            <p><span class="font-weight-bold">Cashout Data Provider Reference:</span> {{ data.cashoutData.provider_reference }}</p>
+            <p><span class="font-weight-bold">Cashout Data Receipt Identifier:</span> {{ data.cashoutData.receipt_identifier }}</p>
+            <p><span class="font-weight-bold">Cash In Data Token:</span> {{ data.cashInData.token }}</p>
+            <p><span class="font-weight-bold">Cash In Data Amount:</span> {{ data.cashInData.amount }}</p>
+            <p><span class="font-weight-bold">Cash In Data Status:</span> {{ data.cashInData.status }}</p>
+            <p><span class="font-weight-bold">Cash In Data Updated At:</span> {{ data.cashInData.updated_at }}</p>
+            <p><span class="font-weight-bold">Cash In Data Withdraw Mode:</span> {{ data.cashInData.withdraw_mode }}</p>
+            <p><span class="font-weight-bold">Cash In Data Disburse Tx ID:</span> {{ data.cashInData.disburse_tx_id }}</p>
+            <p><span class="font-weight-bold">Cash In Data Transaction ID:</span> {{ data.cashInData.transaction_id }}</p> -->
+            <p><span class="font-weight-bold">Created At:</span> {{ data.createdAt }}</p>
+            <p><span class="font-weight-bold">Updated At:</span> {{ data.updatedAt }}</p>
+        </div>
+        
+        <!-- <ul class="clearfix">
+            <li>
+                <p><span class="font-weight-bold"> Nom complet: </span>{{data.fullName}}</p>
+            </li>
+            <li>
+                <p><span class="font-weight-bold"> Effectuée le: </span>{{data.txnDate}}</p>
+            </li>
+            <li>
+                <p><span class="font-weight-bold"> Montant: </span>{{ data.amount }}</p>
+            </li>
+            <li>
+                <p>
+                    <span class="font-weight-bold"> Montant total: </span>{{data.totalAmount}}
+                </p>
+            </li>
+            <li>
+                <p><span class="font-weight-bold"> Portefeuille expéditeur: </span>{{data.walletSender}}</p>
+            </li>
+            <li>
+                <p><span class="font-weight-bold"> Numéro expéditeur: </span>{{ data.phoneNumberSender }}</p>
+            </li>
+            <li>
+                <p>
+                    <span class="font-weight-bold"> Portefeuille destinataire:</span>{{data.walletReciever}}
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span class="font-weight-bold"> Numéro destinataire:</span>{{data.phoneNumberReciever}}
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span class="font-weight-bold">Status:</span>{{data.sohoTxnStatus}}
+                </p>
+            </li>
+        </ul> -->
+    </div>
+    <div mat-dialog-actions class="mb-1">
+        <button mat-flat-button (click)="onNoClick()" tabindex="-1">Fermer</button>
+    </div>
+</div>
