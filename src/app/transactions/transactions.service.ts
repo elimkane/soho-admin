@@ -10,7 +10,8 @@ import { TransactionsListModel } from './transactions-list.model';
 })
 export class TransactionsService extends UnsubscribeOnDestroyAdapter {
   //private readonly API_URL = 'assets/data/Transactions.json';
-  private readonly API_URL = 'http://localhost:8080';
+ // private readonly API_URL = 'http://localhost:8080';
+  private readonly API_URL = 'https://next-app-version-pw4zv.ondigitalocean.app';
   // private readonly API_URL = 'https://soho-backend-odwes.ondigitalocean.app';
   isTblLoading = true;
 
