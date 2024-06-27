@@ -12,7 +12,7 @@ import {AccountKycListModel} from "./account-kyc-list.model";
 export class AdvanceTableService extends UnsubscribeOnDestroyAdapter {
   //private readonly API_URL = 'assets/data/advanceTable.json';
   //private readonly API_URL = 'http://localhost:8080';
-  private readonly API_URL = 'https://oyster-app-aqdvb.ondigitalocean.app/';
+  private readonly API_URL = 'https://oyster-app-aqdvb.ondigitalocean.app';
 
   isTblLoading = true;
 
