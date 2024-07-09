@@ -80,8 +80,8 @@ export const ROUTES: RouteInfo[] = [
     submenu: [],
   },
   {
-    path: '#',
-    title: 'Liste des utilisateurs bloqués',
+    path: 'usersinit',
+    title: 'Liste des utilisateurs INIT',
     iconType: 'feather',
     icon: 'user',
     class: '',
