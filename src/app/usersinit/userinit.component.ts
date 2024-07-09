@@ -69,7 +69,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
   ];
   exampleDatabase?: UserinitService;
   dataSource!: ExampleDataSource;
-  selection = new SelectionModel<UserModel>(true, []);
+  selection = new SelectionModel<UserinitModel>(true, []);
   id?: number;
   advanceTable?: UserinitModel;
 
@@ -114,7 +114,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
         // After dialog is closed we're doing frontend updates
         // For add we're just pushing a new row inside DataService
         this.exampleDatabase?.dataChange.value.unshift(
-          this.userService.getDialogData()
+          this.userinitService.getDialogData()
         );
         this.refreshTable();
         this.showNotification(
@@ -126,7 +126,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
       }
     });
   }
-  editCall(row: UserModel) {
+  editCall(row: UserinitModel) {
     this.id = row.id;
     let tempDirection: Direction;
     if (localStorage.getItem('isRtl') === 'true') {
@@ -151,7 +151,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
       );
     });
   }
-  deleteItem(row: UserModel) {
+  deleteItem(row: UserinitModel) {
     this.id = row.id;
     let tempDirection: Direction;
     if (localStorage.getItem('isRtl') === 'true') {
@@ -209,7 +209,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
       // console.log(this.dataSource.renderedData.findIndex((d) => d === item));
       this.exampleDatabase?.dataChange.value.splice(index, 1);
       this.refreshTable();
-      this.selection = new SelectionModel<UserModel>(true, []);
+      this.selection = new SelectionModel<UserinitModel>(true, []);
     });
     this.showNotification(
       'snackbar-danger',
@@ -219,7 +219,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
     );
   }
   public loadData() {
-    this.exampleDatabase = new UserService(this.httpClient);
+    this.exampleDatabase = new UserinitService(this.httpClient);
     this.dataSource = new ExampleDataSource(
       this.exampleDatabase,
       this.paginator,
@@ -268,7 +268,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
   }
 
   // context menu
-  onContextMenu(event: MouseEvent, item: UserModel) {
+  onContextMenu(event: MouseEvent, item: UserinitModel) {
     event.preventDefault();
     this.contextMenuPosition.x = event.clientX + 'px';
     this.contextMenuPosition.y = event.clientY + 'px';
@@ -281,7 +281,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
 
 }
 
-export class ExampleDataSource extends DataSource<UserModel> {
+export class ExampleDataSource extends DataSource<UserinitModel> {
   filterChange = new BehaviorSubject('');
   get filter(): string {
     return this.filterChange.value;
@@ -315,7 +315,7 @@ export class ExampleDataSource extends DataSource<UserModel> {
         // Filter data
         this.filteredData = this.exampleDatabase.data
           .slice()
-          .filter((advanceTable: UserModel) => {
+          .filter((advanceTable: UserinitModel) => {
             const searchStr = (
               advanceTable.first_name +
               advanceTable.last_name +
@@ -345,7 +345,7 @@ export class ExampleDataSource extends DataSource<UserModel> {
     //disconnect
   }
   /** Returns a sorted copy of the database data. */
-  sortData(data: UserModel[]): UserModel[] {
+  sortData(data: UserinitModel[]): UserinitModel[] {
     if (!this._sort.active || this._sort.direction === '') {
       return data;
     }
