@@ -39,7 +39,7 @@ export class UserService extends UnsubscribeOnDestroyAdapter {
   //GET 
   getAllAdvanceTables(): void {
     this.subs.sink = this.httpClient
-      .get<UserModel[]>(this.API_URL+'/auth/allUsers')
+      .get<UserModel[]>(this.API_URL+'/auth/user-init-list')
       .subscribe({
         next: (data) => {
           console.log(data);
