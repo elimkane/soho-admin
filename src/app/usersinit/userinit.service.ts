@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { UnsubscribeOnDestroyAdapter } from '@shared';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { UserModel } from './users.model';
+import { UserinitModel } from './userinit.model';
 
 
 @Injectable({
     providedIn: 'root',
 })
 
-export class UserService extends UnsubscribeOnDestroyAdapter {
+export class UserinitService extends UnsubscribeOnDestroyAdapter {
 
  // private readonly API_URL = 'http://localhost:8080';
   private readonly API_URL = 'https://oyster-app-aqdvb.ondigitalocean.app';
