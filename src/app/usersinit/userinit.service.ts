@@ -16,10 +16,10 @@ export class UserinitService extends UnsubscribeOnDestroyAdapter {
 
   isTblLoading = true;
 
-  dialogData!: UserModel;
+  dialogData!: UserinitModel;
 
   dataChange: BehaviorSubject<UserModel[]> = new BehaviorSubject<
-    UserModel[]
+    UserinitModel[]
   >([]);
   
   constructor(private httpClient: HttpClient) {
@@ -27,7 +27,7 @@ export class UserinitService extends UnsubscribeOnDestroyAdapter {
   }
 
   // Functions helper
-  get data(): UserModel[] {
+  get data(): UserinitModel[] {
     return this.dataChange.value;
   }
 
@@ -39,7 +39,7 @@ export class UserinitService extends UnsubscribeOnDestroyAdapter {
   //GET 
   getAllAdvanceTables(): void {
     this.subs.sink = this.httpClient
-      .get<UserModel[]>(this.API_URL+'/auth/user-init-list')
+      .get<UserinitModel[]>(this.API_URL+'/auth/user-init-list')
       .subscribe({
         next: (data) => {
           console.log(data);
