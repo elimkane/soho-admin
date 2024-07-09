@@ -35,6 +35,11 @@ export const APP_ROUTE: Route[] = [
         loadChildren: () =>
           import('./users/users.routes').then((m) => m.USERS_ROUTE),
       },
+       {
+        path: 'usersinit',
+        loadChildren: () =>
+          import('./usersinit/userinit.routes').then((m) => m.USERINIT_ROUTE),
+      },
       {
         path: 'calendar',
         loadChildren: () =>
