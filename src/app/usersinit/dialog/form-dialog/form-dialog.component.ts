@@ -17,7 +17,7 @@ import { UserinitService } from 'app/usersinit/userinit.service';
 export interface DialogData {
   id: number;
   action: string;
-  advanceTable:  UserModel;
+  advanceTable:  UserinitModel;
 }
 
 @Component({
@@ -47,7 +47,7 @@ export class FormDialogComponent {
   action: string;
   dialogTitle: string;
   advanceTableForm: UntypedFormGroup;
-  advanceTable:  UserModel;
+  advanceTable:  UserinitModel;
   constructor(
     public dialogRef: MatDialogRef<FormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
