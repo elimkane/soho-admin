@@ -1,6 +1,6 @@
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { Component, Inject } from '@angular/core';
-import { UserinitService } from '../../users.service';
+import { UserinitService } from '../../userinit.service';
 import { MatButtonModule } from '@angular/material/button';
 
 export interface DialogData {
