@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { UserService } from './users.service';
+import { UserinitService } from './userinit.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-import { UserModel } from './users.model';
+import { UserinitModel } from './userinit.model';
 import { DataSource } from '@angular/cdk/collections';
 import {
   MatSnackBar,
@@ -33,11 +33,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BreadcrumbComponent } from '../shared/components/breadcrumb/breadcrumb.component';
 
 @Component({
-  selector: 'app-users',
+  selector: 'app-usersinit',
   standalone: true,
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
-  templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  templateUrl: './userinit.component.html',
+  styleUrl: './userinit.component.scss',
   imports: [
     BreadcrumbComponent,
     MatTooltipModule,
@@ -56,7 +56,7 @@ import { BreadcrumbComponent } from '../shared/components/breadcrumb/breadcrumb.
   ],
 })
 
-export class UsersComponent extends UnsubscribeOnDestroyAdapter implements OnInit{
+export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements OnInit{
 
   displayedColumns = [
     'id',
@@ -67,16 +67,16 @@ export class UsersComponent extends UnsubscribeOnDestroyAdapter implements OnIni
     'pays_iso_2',
     'actions',
   ];
-  exampleDatabase?: UserService;
+  exampleDatabase?: UserinitService;
   dataSource!: ExampleDataSource;
   selection = new SelectionModel<UserModel>(true, []);
   id?: number;
-  advanceTable?: UserModel;
+  advanceTable?: UserinitModel;
 
   constructor(
     public httpClient: HttpClient,
     public dialog: MatDialog,
-    public userService: UserService,
+    public userService: UserinitService,
     private snackBar: MatSnackBar
   ) {
     super();
