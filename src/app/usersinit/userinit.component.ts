@@ -13,8 +13,8 @@ import {
 } from '@angular/material/snack-bar';
 import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { FormDialogComponent } from './dialogs/form-dialog/form-dialog.component';
-import { DeleteDialogComponent } from './dialogs/delete/delete.component';
+import { FormDialogComponent } from './dialog/form-dialog/form-dialog.component';
+import { DeleteDialogComponent } from './dialog/delete/delete.component';
 import { MAT_DATE_LOCALE, MatRippleModule } from '@angular/material/core';
 import { MatMenuTrigger, MatMenuModule } from '@angular/material/menu';
 import { SelectionModel } from '@angular/cdk/collections';
