@@ -76,7 +76,7 @@ export class UserinitComponent extends UnsubscribeOnDestroyAdapter implements On
   constructor(
     public httpClient: HttpClient,
     public dialog: MatDialog,
-    public userService: UserinitService,
+    public userinitService: UserinitService,
     private snackBar: MatSnackBar
   ) {
     super();
@@ -289,10 +289,10 @@ export class ExampleDataSource extends DataSource<UserinitModel> {
   set filter(filter: string) {
     this.filterChange.next(filter);
   }
-  filteredData: Array<UserModel> = [];
-  renderedData: Array<UserModel> = [];
+  filteredData: Array<UserinitModel> = [];
+  renderedData: Array<UserinitModel> = [];
   constructor(
-    public exampleDatabase: UserService,
+    public exampleDatabase: UserinitService,
     public paginator: MatPaginator,
     public _sort: MatSort
   ) {
@@ -301,7 +301,7 @@ export class ExampleDataSource extends DataSource<UserinitModel> {
     this.filterChange.subscribe(() => (this.paginator.pageIndex = 0));
   }
   /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<UserModel[]> {
+  connect(): Observable<UserinitModel[]> {
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
       this.exampleDatabase.dataChange,
