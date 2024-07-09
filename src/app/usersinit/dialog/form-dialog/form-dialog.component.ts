@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { UserinitModel} from "../../usersinit.model";
+import { UserinitModel} from "../../userinit.model";
 import { UserinitService } from 'app/usersinit/userinit.service';
 
 export interface DialogData {
