@@ -18,7 +18,7 @@ export class UserinitService extends UnsubscribeOnDestroyAdapter {
 
   dialogData!: UserinitModel;
 
-  dataChange: BehaviorSubject<UserModel[]> = new BehaviorSubject<
+  dataChange: BehaviorSubject<UserinitModel[]> = new BehaviorSubject<
     UserinitModel[]
   >([]);
   
