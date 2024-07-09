@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-export class UserModel {
+export class UserinitModel {
   id: number;
   email: string;
   first_name: string;
@@ -10,7 +10,7 @@ export class UserModel {
   recto: string;
   verso: string;
   profil: string;
-  constructor(user: UserModel) {
+  constructor(user: UserinitModel) {
     {
       this.id = user.id;
       this.email = user.email;
