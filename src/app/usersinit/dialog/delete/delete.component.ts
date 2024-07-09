@@ -1,6 +1,6 @@
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { Component, Inject } from '@angular/core';
-import { UserService } from '../../users.service';
+import { UserinitService } from '../../users.service';
 import { MatButtonModule } from '@angular/material/button';
 
 export interface DialogData {
@@ -28,7 +28,7 @@ export class DeleteDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<DeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    public userService: UserService
+    public userinitService: UserinitService
   ) {}
   onNoClick(): void {
     this.dialogRef.close();
