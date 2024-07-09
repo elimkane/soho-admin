@@ -51,7 +51,7 @@ export class FormDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<FormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    public userService: UserService,
+    public userinitService: UserinitService,
     private fb: UntypedFormBuilder
   ) {
     // Set the defaults
@@ -62,8 +62,8 @@ export class FormDialogComponent {
       this.advanceTable = data.advanceTable;
     } else {
       this.dialogTitle = 'New Record';
-      const blankObject = {} as  UserModel;
-      this.advanceTable = new  UserModel(blankObject);
+      const blankObject = {} as  UserinitModel;
+      this.advanceTable = new  UserinitModel(blankObject);
     }
     this.advanceTableForm = this.createContactForm();
   }
@@ -103,7 +103,7 @@ export class FormDialogComponent {
     // emppty stuff
   }
   public async onNoClick() {
-   // await this.userService.updateAccountStatus(this.advanceTable,false);
+   // await this.userinitService.updateAccountStatus(this.advanceTable,false);
     this.dialogRef.close();
   }
 
@@ -114,6 +114,6 @@ export class FormDialogComponent {
     /*this.advanceTableService.addAdvanceTable(
       this.advanceTableForm.getRawValue()
     );*/
-    //await this.userService.updateAccountStatus(this.advanceTable,true);
+    //await this.userinitService.updateAccountStatus(this.advanceTable,true);
   }
 }
