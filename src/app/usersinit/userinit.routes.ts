@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { UsersComponent } from './userinit.component';
+import { UserinitComponent } from './userinit.component';
 
 
 
