@@ -12,7 +12,7 @@ import { UserinitModel } from './userinit.model';
 export class UserinitService extends UnsubscribeOnDestroyAdapter {
 
  // private readonly API_URL = 'http://localhost:8080';
-  private readonly API_URL = 'https://oyster-app-aqdvb.ondigitalocean.app';
+  private readonly API_URL = 'https://goldfish-app-22ubm.ondigitalocean.app';
 
   isTblLoading = true;
 
@@ -39,7 +39,7 @@ export class UserinitService extends UnsubscribeOnDestroyAdapter {
   //GET 
   getAllAdvanceTables(): void {
     this.subs.sink = this.httpClient
-      .get<UserinitModel[]>(this.API_URL+'/auth/user-init-list')
+      .get<UserinitModel[]>(this.API_URL+'/auth/creation')
       .subscribe({
         next: (data) => {
           console.log(data);
