@@ -12,76 +12,60 @@
     </button>
   </div>
   <div mat-dialog-content>
-    <form class="register-form m-4" [formGroup]="advanceTableForm" (ngSubmit)="submit">
-      <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+    <form class="register-form" [formGroup]="advanceTableForm" (ngSubmit)="submit()">
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Prenom</mat-label>
             <input matInput formControlName="first_name" [readonly]="true">
           </mat-form-field>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Nom</mat-label>
             <input matInput formControlName="last_name" [readonly]="true">
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" required [readonly]="true">
           </mat-form-field>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Téléphone</mat-label>
             <input matInput formControlName="phone_number" type="number" [readonly]="true">
           </mat-form-field>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Pays</mat-label>
             <input matInput formControlName="pays_iso_2" [readonly]="true">
           </mat-form-field>
         </div>
       </div>
-      <div class="row" style="border-bottom: 2px solid;">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <figure class="max-w-lg">
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Recto</figcaption>
-           <img class="img-fluid w-100 rounded-lg" [src]="advanceTable.recto" alt="Image recto">
-          </figure>
+      <div class="image-gallery">
+        <div class="image-item">
+          <figcaption>Recto</figcaption>
+          <img [src]="advanceTable.recto" alt="Image recto">
+        </div>
+        <div class="image-item">
+          <figcaption>Verso</figcaption>
+          <img [src]="advanceTable.verso" alt="Image verso">
+        </div>
+        <div class="image-item">
+          <figcaption>Profil</figcaption>
+          <img [src]="advanceTable.profil" alt="Image profil">
         </div>
       </div>
-      <div class="row" style="border-bottom: 2px solid;">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <figure class="max-w-lg">
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Verso</figcaption>
-            <img class="img-fluid w-100 rounded-lg" [src]="advanceTable.verso" alt="Image verso">
-          </figure>
-        </div>
-      </div>
-      <div class="row" style="margin-bottom: 2px">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <figure class="max-w-lg">
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Profil</figcaption>
-            <img class="img-fluid w-100 rounded-lg" [src]="advanceTable.profil" alt="Image profil">
-          </figure>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
-          <div class="example-button-row">
-            <button mat-raised-button color="primary" [disabled]="!advanceTableForm.valid" [mat-dialog-close]="1"
-                    (click)="confirmAdd()">Valider
-            </button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Rejeter</button>
-          </div>
-        </div>
+      <div class="button-group">
+        <button mat-raised-button color="primary" [disabled]="!advanceTableForm.valid" (click)="confirmAdd()">Valider</button>
+        <button mat-raised-button color="warn" (click)="onNoClick()">Rejeter</button>
       </div>
     </form>
   </div>
