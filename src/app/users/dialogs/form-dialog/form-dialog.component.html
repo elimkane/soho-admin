@@ -2,9 +2,6 @@
   <div class="modalHeader">
     <div class="editRowModal">
       <div class="modalHeader clearfix">
-        <!--
-                <img [src]='advanceTable.img' alt="avatar">
-        -->
         <div class="modal-about">
           {{ dialogTitle }}
         </div>
@@ -15,157 +12,60 @@
     </button>
   </div>
   <div mat-dialog-content>
-    <form class="register-form m-4" [formGroup]="advanceTableForm" (ngSubmit)="submit">
-      <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+    <form class="register-form" [formGroup]="advanceTableForm" (ngSubmit)="submit()">
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Prenom</mat-label>
             <input matInput formControlName="first_name" [readonly]="true">
           </mat-form-field>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Nom</mat-label>
             <input matInput formControlName="last_name" [readonly]="true">
           </mat-form-field>
         </div>
       </div>
-      <!--<div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
-          <div class="m-b-20">
-            <mat-label class="msr-3">Gender:</mat-label>
-            <mat-radio-group aria-label="Select gender" formControlName="gender" required>
-              <mat-radio-button value="Male">Male</mat-radio-button>
-              <mat-radio-button value="Female">Female</mat-radio-button>
-              @if (advanceTableForm.get('gender')?.hasError('required')) {
-                <mat-error>
-                  Select gender
-                </mat-error>
-              }
-            </mat-radio-group>
-          </div>
-        </div>
-      </div>-->
-      <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" required [readonly]="true">
           </mat-form-field>
         </div>
-        <!--
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-                          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
-                            <mat-label>Birth date</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="bDate">
-                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                              <mat-datepicker #picker></mat-datepicker>
-                              @if (advanceTableForm.get('bDate')?.hasError('required')) {
-                                <mat-error>
-                                  Please select date
-                                </mat-error>
-                              }
-                            </mat-form-field>
-                          </div>
-        -->
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Téléphone</mat-label>
             <input matInput formControlName="phone_number" type="number" [readonly]="true">
           </mat-form-field>
         </div>
       </div>
-
-      <div class="row">
-        <!--<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
-            <mat-label>Mobile</mat-label>
-            <input matInput formControlName="mobile" type="number">
-              <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>phone</mat-icon>
-              @if (advanceTableForm.get('phone')?.hasError('required')) {
-                <mat-error>
-                  Mobile is required
-                </mat-error>
-              }
-            </mat-form-field>
-          </div>-->
-        <!--
-                            <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-4">
-                              <mat-form-field class="example-full-width " appearance="outline" subscriptSizing="dynamic">
-                                <mat-label>Country</mat-label>
-                                <mat-select formControlName="country" required>
-                                  <mat-option [value]="'india'">
-                                    India
-                                  </mat-option>
-                                  <mat-option [value]="'usa'">
-                                    USA
-                                  </mat-option>
-                                  <mat-option [value]="'france'">
-                                    France
-                                  </mat-option>
-                                  <mat-option [value]="'germany'">
-                                    Germany
-                                  </mat-option>
-                                  <mat-option [value]="'spain'">
-                                    Spain
-                                  </mat-option>
-                                  <mat-option [value]="'turkey'">
-                                    Turkey
-                                  </mat-option>
-                                  <mat-option [value]="'other'">
-                                    Other
-                                  </mat-option>
-                                </mat-select>
-                                @if (advanceTableForm.get('country')?.hasError('required')) {
-                                  <mat-error>
-                                    Country Name is required
-                                  </mat-error>
-                                }
-                              </mat-form-field>
-                            </div>
-        -->
-      </div>
-      <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic">
+      <div class="form-row">
+        <div class="form-group">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Pays</mat-label>
             <input matInput formControlName="pays_iso_2" [readonly]="true">
           </mat-form-field>
         </div>
       </div>
-      <div class="row" style="border-bottom: 2px solid;">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <figure class="max-w-lg">
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">recto</figcaption>
-            <img class="h-auto max-w-full rounded-lg" src="{{advanceTable.recto}}" alt="image description">
-          </figure>
+      <div class="image-gallery">
+        <div class="image-item">
+          <figcaption>recto</figcaption>
+          <img [src]="advanceTable.recto" alt="Image recto">
+        </div>
+        <div class="image-item">
+          <figcaption>Verso</figcaption>
+          <img [src]="advanceTable.verso" alt="Image verso">
+        </div>
+        <div class="image-item">
+          <figcaption>Profil</figcaption>
+          <img [src]="advanceTable.profil" alt="Image profil">
         </div>
       </div>
-      <div class="row" style="border-bottom: 2px solid;">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <figure class="max-w-lg">
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Verso</figcaption>
-            <img class="h-auto max-w-full rounded-lg" src="{{advanceTable.verso}}" alt="image description">
-          </figure>
-        </div>
-      </div>
-      <div class="row" style="margin-bottom: 2px">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
-          <figure class="max-w-lg">
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Profil</figcaption>
-            <img class="h-auto max-w-full rounded-lg" src="{{advanceTable.profil}}" alt="image description">
-          </figure>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
-          <div class="example-button-row">
-            <button mat-raised-button color="primary" [disabled]="!advanceTableForm.valid" [mat-dialog-close]="1"
-                    (click)="confirmAdd()">Valider
-            </button>
-            <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Rejeter</button>
-          </div>
-        </div>
+      <div class="button-group">
+        <button mat-raised-button color="primary" [disabled]="!advanceTableForm.valid" (click)="confirmAdd()">Valider</button>
+        <button mat-raised-button color="warn" (click)="onNoClick()">Rejeter</button>
       </div>
     </form>
   </div>
