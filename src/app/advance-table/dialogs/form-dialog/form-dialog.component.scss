@@ -1,15 +1,95 @@
-.max-w-lg {
-    max-width: 100%; /* Permet aux images de s'adapter à la largeur de leur conteneur */
-    height: auto;   /* Maintient le ratio d'aspect */
+.addContainer {
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
   }
-  
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
+
+  .modal-close-button {
+    margin-left: auto;
+    padding: 0;
   }
-  
-  figure {
-    margin: 0;
-    text-align: center;
+
+  .register-form {
+    padding: 1rem;
   }
-  
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .image-item {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+
+      figcaption {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin-bottom: 0.5rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      min-width: 120px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modalHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .register-form {
+    padding: 0.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .image-gallery {
+    .image-item {
+      flex: 1;
+      min-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .form-group {
+    width: 100%;
+  }
+}
