@@ -1,7 +1,8 @@
 <section class="content">
   <div class="content-block">
     <div class="block-header">
-      <app-breadcrumb [title]="'Table'" [items]="['Accueil']" [active_item]="'Liste des transactions'"></app-breadcrumb>
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Table'" [items]="['Home']" [active_item]="'Liste des transactions'"></app-breadcrumb>
     </div>
     <div class="table-container">
       <div class="card">
@@ -10,19 +11,19 @@
             <h2>Liste des transactions</h2>
             <div class="search-box">
               <label for="search-input"><i class="material-icons search-icon">search</i></label>
-              <input placeholder="Recherche" type="text" #filter class="search-field" aria-label="Search box">
+              <input placeholder="Search" type="text" #filter class="search-field" aria-label="Search box">
             </div>
           </div>
           <div class="header-right">
-            <button mat-mini-fab color="primary" (click)="refresh()" matTooltip="Rafraîchir">
+            <button mat-mini-fab color="primary" (click)="refresh()" matTooltip="REFRESH">
               <mat-icon class="col-white">refresh</mat-icon>
             </button>
           </div>
         </div>
         <div class="table-body">
-          <div class="responsive-table" *ngIf="!exampleDatabase?.isTblLoading; else loading">
+          <div class="responsive-table">
             <table mat-table [dataSource]="dataSource" matSort class="mat-cell transactions">
-              <!-- Définition des colonnes -->
+              <!-- Columns Definitions -->
               <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
                 <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
@@ -48,7 +49,7 @@
                 <mat-cell *matCellDef="let row">{{row.phoneNumberReciever}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="sohoTxnStatus">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Statut</mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
                 <mat-cell *matCellDef="let row">{{row.sohoTxnStatus}}</mat-cell>
               </ng-container>
               <ng-container matColumnDef="amount">
@@ -73,15 +74,13 @@
               </mat-row>
             </table>
           </div>
-          <!-- Spinner de chargement -->
-          <ng-template #loading>
-            <div class="tbl-spinner">
-              <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate"></mat-progress-spinner>
-            </div>
-          </ng-template>
-          <!-- Aucun résultat -->
+          <!-- Loading Spinner -->
+          <div *ngIf="exampleDatabase?.isTblLoading" class="tbl-spinner">
+            <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate"></mat-progress-spinner>
+          </div>
+          <!-- No Results -->
           <div *ngIf="!exampleDatabase?.isTblLoading && dataSource.renderedData.length === 0" class="no-results">
-            Pas de transactions disponibles.
+            Pas de compte en attente de validation....
           </div>
           <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
             [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
