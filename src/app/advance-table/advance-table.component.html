@@ -1,46 +1,63 @@
 <section class="content">
-  <div class="content-block">
-    <div class="block-header">
-      <app-breadcrumb [title]="'Table'" [items]="['Home']" [active_item]="'Table'"></app-breadcrumb>
-    </div>
-
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-12">
         <div class="card">
-          <div class="materialTableHeader">
-            <div class="left">
-              <ul class="header-buttons-left ms-0">
-                <li class="tbl-title">
-                  <h2>Liste compte à valider</h2>
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Table'" [items]="['Home']" [active_item]="'Table'"></app-breadcrumb>
+            <div class="header-buttons">
+              <ul class="list-unstyled d-flex mb-0">
+                <li class="me-3">
+                  <h2 class="mb-0">Liste compte à valider</h2>
                 </li>
-                <li class="tbl-search-box">
-                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
-                  <input placeholder="Search" type="text" #filter class="browser-default search-field"
-                    aria-label="Search box">
+                <li class="me-3">
+                  <label for="search-input" class="search-icon">
+                    <i class="material-icons">search</i>
+                  </label>
+                  <input placeholder="Search" type="text" #filter class="form-control search-field" aria-label="Search box">
                 </li>
-              </ul>
-            </div>
-            <div class="right">
-              <ul class="tbl-export-btn">
-                <li class="tbl-header-btn">
-                  <div class="m-l-10" matTooltip="REFRESH">
-                    <button mat-mini-fab color="primary" (click)="refresh()">
-                      <mat-icon class="col-white">refresh</mat-icon>
-                    </button>
-                  </div>
+                <li>
+                  <button mat-mini-fab color="primary" (click)="refresh()" matTooltip="REFRESH">
+                    <mat-icon class="col-white">refresh</mat-icon>
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="body overflow-auto">
-            <div class="responsive_table">
+          <div class="card-body">
+            <div class="table-responsive">
               <table mat-table [dataSource]="dataSource" matSort class="mat-cell advance-table">
-                <!-- Columns go here -->
+                <!-- ID Column -->
                 <ng-container matColumnDef="id">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
                   <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
                 </ng-container>
-                <!-- Other columns here -->
+                <ng-container matColumnDef="first_name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                    <span class="mobile-label">First Name:</span>{{row.first_name}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="last_name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                    <span class="mobile-label">Last Name:</span>{{row.last_name}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                    <span class="mobile-label">Email:</span> {{row.email}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="phone_number">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                    <span class="mobile-label">Mobile:</span> {{row.phone_number}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="pays_iso_2">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Pays</mat-header-cell>
+                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+                    <span class="mobile-label">Pays:</span> {{row.pays_iso_2}}</mat-cell>
+                </ng-container>
                 <ng-container matColumnDef="actions">
                   <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
                   <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
@@ -57,15 +74,16 @@
               </table>
             </div>
             <!-- Loading spinner -->
-            <div class="tbl-spinner" *ngIf="exampleDatabase?.isTblLoading">
+            <div *ngIf="exampleDatabase?.isTblLoading" class="tbl-spinner">
               <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate"></mat-progress-spinner>
             </div>
-            <div class="no-results" [style.display]="dataSource.renderedData.length === 0 ? '' : 'none'">
+            <!-- No results message -->
+            <div *ngIf="!exampleDatabase?.isTblLoading && dataSource.renderedData.length === 0" class="no-results">
               Pas de compte en attente de validation....
             </div>
+            <!-- Pagination -->
             <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]">
-            </mat-paginator>
+              [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
           </div>
         </div>
       </div>
