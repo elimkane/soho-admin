@@ -116,5 +116,6 @@ export class FormDialogComponent {
       this.advanceTableForm.getRawValue()
     );*/
     await this.advanceTableService.updateAccountStatus(this.advanceTable,true);
+    this.dialogRef.close();
   }
 }
